@@ -297,106 +297,82 @@
 
 <main>
 
-<div class="copy-wrapper">
-  <div class="copy-box">
-    <span id="copyText">https://example.com</span>
-    <button onclick="copyToClipboard()">Copy</button>
+<div class="copy-section">
+  <div class="copy-container">
+    <span id="repoText">https://example.com</span>
+    <button id="copyBtn">Copy</button>
   </div>
 
-  <div class="repo-buttons">
-<button class="repo-btn" onclick="window.location.href='your-url-scheme://open'">
-  <img src="esign.jpeg" alt="ESign Logo">
-  <span>ESign</span>
-</button>
+  <button class="repo-btn" onclick="window.location.href='your-esign-url-scheme://open'">
+    <img src="esign.jpeg" alt="ESign Logo">
+    <span>ESign</span>
+  </button>
 
-<button class="repo-btn" onclick="window.location.href='your-other-url-scheme://open'">
-  <img src="feather.jpeg" alt="Feather Logo">
-  <span>Feather</span>
-</button>
-  </div>
+  <button class="repo-btn" onclick="window.location.href='your-feather-url-scheme://open'">
+    <img src="feather.jpeg" alt="Feather Logo">
+    <span>Feather</span>
+  </button>
 </div>
 
 <style>
-.copy-wrapper {
+.copy-section {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 2rem 0;
+  gap: 0.5rem;
+  max-width: 500px;
+  margin: 2rem auto;
 }
 
-.copy-box {
+.copy-container {
+  display: flex;
+  width: 100%;
+  border: 1px solid grey;
+  font-family: SFMono-Regular, Consolas, Menlo, monospace;
+  color: grey;
+}
+
+.copy-container span {
+  flex: 1;
+  padding: 0.5rem 1rem;
+  border-right: 1px solid grey;
   display: flex;
   align-items: center;
-  border: 1px solid #999;
-  font-family: 'SFMono-Regular', Consolas, Menlo, monospace;
-  color: #555;
-  background-color: #f5f5f5;
-  font-size: 0.95rem;
+  justify-content: center;
 }
 
-.copy-box span {
-  padding: 0.5rem 1rem;
-}
-
-.copy-box button {
-  padding: 0.5rem 1rem;
-  border-left: 1px solid #999;
-  background-color: #e0e0e0;
-  color: #555;
+.copy-container button {
+  background: none;
+  border: none;
+  padding: 0 1rem;
   cursor: pointer;
   font-weight: 600;
-  border: none;
-  transition: background 0.3s ease;
-}
-
-.copy-box button:hover {
-  background-color: #d0d0d0;
-}
-
-/* Repo buttons below copy box */
-.repo-buttons {
-  display: flex;
-  gap: 1rem;
-  margin-top: 0; /* attached directly below copy box */
+  color: grey;
 }
 
 .repo-btn {
   display: flex;
   align-items: center;
-  border: 1px solid #999;
-  background-color: #f5f5f5;
+  width: 100%;
   padding: 0.5rem 1rem;
-  cursor: pointer;
+  background-color: #f0f0f0;
+  border: 1px solid grey;
   font-weight: 600;
-  color: #555;
-  transition: background 0.3s ease;
+  color: grey;
+  cursor: pointer;
+  gap: 0.5rem;
 }
 
 .repo-btn img {
-  height: 20px; /* adjust size of logo */
-  width: 20px;
-  object-fit: contain;
-  margin-right: 0.5rem;
+  height: 24px;
+  width: 24px;
 }
 
 .repo-btn span {
   flex: 1;
-  text-align: center; /* center the text */
-}
-
-.repo-btn:hover {
-  background-color: #e0e0e0;
+  text-align: center;
 }
 </style>
-
-<script>
-function copyToClipboard() {
-  const text = document.getElementById("copyText").textContent;
-  navigator.clipboard.writeText(text).then(() => {
-    alert("Copied to clipboard!");
-  });
-}
-</script>
   
   <div class="faq-section">
     <div class="grey">
