@@ -297,39 +297,47 @@
 
 <main>
 
-  <div class="copy-container">
-  <span id="copyText">https://example.com</span>
-  <button onclick="copyToClipboard()">Copy</button>
+<div class="copy-wrapper">
+  <div class="copy-box">
+    <span id="copyText">https://example.com</span>
+    <button onclick="copyToClipboard()">Copy</button>
+  </div>
 </div>
 
 <style>
-.copy-container {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  font-family: 'SFMono-Regular', Consolas, Menlo, monospace;
+.copy-wrapper {
+  display: flex;
+  justify-content: center;
+  margin: 2rem 0;
 }
 
-#copyText {
-  padding: 0.3rem 0.6rem;
-  border: 1px solid #007acc;
+.copy-box {
+  display: flex;
+  align-items: center;
+  border: 1px solid #999; /* grey border */
   font-family: 'SFMono-Regular', Consolas, Menlo, monospace;
+  color: #555; /* grey text */
+  background-color: #f5f5f5; /* light grey background */
   font-size: 0.95rem;
 }
 
-.copy-container button {
-  padding: 0.3rem 0.7rem;
-  border: none;
-  border-radius: 0; /* rectangular */
-  background-color: #007acc;
-  color: white;
+.copy-box span {
+  padding: 0.5rem 1rem;
+}
+
+.copy-box button {
+  padding: 0.5rem 1rem;
+  border-left: 1px solid #999; /* separating line */
+  background-color: #e0e0e0;
+  color: #555;
   cursor: pointer;
   font-weight: 600;
+  border: none; /* remove default button border */
   transition: background 0.3s ease;
 }
 
-.copy-container button:hover {
-  background-color: #005fa3;
+.copy-box button:hover {
+  background-color: #d0d0d0;
 }
 </style>
 
