@@ -308,128 +308,171 @@
 
 </main>
 
-<section id="appsSection" style="padding:2rem 0; background:#f9f9f9;">
-  <h2 style="text-align:center; color:#007acc; font-weight:600; margin-bottom:2rem;">Featured Apps</h2>
-  
-  <div class="app-row-container">
-    <div class="app-row" id="row1">
-      <!-- Row 1 apps will populate here -->
+<section class="apps-section">
+  <h2>Featured Apps</h2>
+  <div class="apps-row" id="row1">
+    <div class="app-card">
+      <img src="icon1.png" alt="App Icon" class="app-icon">
+      <div class="app-info">
+        <h3 class="app-title">App One</h3>
+        <p class="app-desc">This is the description for App One.</p>
+        <a href="#" class="download-btn">Download</a>
+      </div>
+    </div>
+    <div class="app-card">
+      <img src="icon2.png" alt="App Icon" class="app-icon">
+      <div class="app-info">
+        <h3 class="app-title">App Two</h3>
+        <p class="app-desc">This is the description for App Two.</p>
+        <a href="#" class="download-btn">Download</a>
+      </div>
+    </div>
+    <div class="app-card">
+      <img src="icon3.png" alt="App Icon" class="app-icon">
+      <div class="app-info">
+        <h3 class="app-title">App Three</h3>
+        <p class="app-desc">This is the description for App Three.</p>
+        <a href="#" class="download-btn">Download</a>
+      </div>
+    </div>
+    <div class="app-card">
+      <img src="icon4.png" alt="App Icon" class="app-icon">
+      <div class="app-info">
+        <h3 class="app-title">App Four</h3>
+        <p class="app-desc">This is the description for App Four.</p>
+        <a href="#" class="download-btn">Download</a>
+      </div>
     </div>
   </div>
 
-  <div class="app-row-container">
-    <div class="app-row" id="row2">
-      <!-- Row 2 apps will populate here -->
+  <div class="apps-row reverse" id="row2">
+    <div class="app-card">
+      <img src="icon5.png" alt="App Icon" class="app-icon">
+      <div class="app-info">
+        <h3 class="app-title">App Five</h3>
+        <p class="app-desc">This is the description for App Five.</p>
+        <a href="#" class="download-btn">Download</a>
+      </div>
+    </div>
+    <div class="app-card">
+      <img src="icon6.png" alt="App Icon" class="app-icon">
+      <div class="app-info">
+        <h3 class="app-title">App Six</h3>
+        <p class="app-desc">This is the description for App Six.</p>
+        <a href="#" class="download-btn">Download</a>
+      </div>
+    </div>
+    <div class="app-card">
+      <img src="icon7.png" alt="App Icon" class="app-icon">
+      <div class="app-info">
+        <h3 class="app-title">App Seven</h3>
+        <p class="app-desc">This is the description for App Seven.</p>
+        <a href="#" class="download-btn">Download</a>
+      </div>
+    </div>
+    <div class="app-card">
+      <img src="icon8.png" alt="App Icon" class="app-icon">
+      <div class="app-info">
+        <h3 class="app-title">App Eight</h3>
+        <p class="app-desc">This is the description for App Eight.</p>
+        <a href="#" class="download-btn">Download</a>
+      </div>
     </div>
   </div>
 </section>
 
 <style>
-.app-row-container {
-  overflow: hidden;
-  position: relative;
-  margin-bottom: 1rem;
+.apps-section {
+  max-width: 1200px;
+  margin: 3rem auto;
+  padding: 0 1rem;
 }
 
-.app-row {
-  display: flex;
-  gap: 1rem;
-  width: max-content;
-  animation: scroll-left 20s linear infinite;
-}
-
-#row2 {
-  animation: scroll-right 25s linear infinite;
-}
-
-.app-card {
-  flex: 0 0 22%; /* 4 per row + gaps */
-  background: #fff;
-  border-radius: 10px;
-  padding: 1rem;
+.apps-section h2 {
   text-align: center;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.6s ease, transform 0.6s ease;
-}
-
-.app-card img {
-  width: 60px;
-  height: 60px;
-  margin-bottom: 0.5rem;
-  border-radius: 12px;
-}
-
-.app-card h3 {
-  margin: 0.5rem 0 0.3rem 0;
-  font-size: 1rem;
+  font-size: 2rem;
+  margin-bottom: 2rem;
   color: #007acc;
 }
 
-.app-card p {
-  font-size: 0.85rem;
-  color: #555;
+.apps-row {
+  display: flex;
+  gap: 1rem;
+  overflow: hidden;
+  animation: scroll-left 20s linear infinite;
 }
 
-/* Animations */
+.apps-row.reverse {
+  animation: scroll-right 20s linear infinite;
+}
+
 @keyframes scroll-left {
   0% { transform: translateX(0); }
   100% { transform: translateX(-50%); }
 }
 
 @keyframes scroll-right {
-  0% { transform: translateX(-50%); }
-  100% { transform: translateX(0); }
+  0% { transform: translateX(0); }
+  100% { transform: translateX(50%); }
+}
+
+.app-card {
+  background-color: #f0f8ff;
+  border-radius: 12px;
+  display: flex;
+  align-items: flex-start;
+  padding: 1rem;
+  min-width: 250px;
+  max-width: 250px;
+  flex-shrink: 0;
+  opacity: 0;
+  animation: fadeIn 1s forwards;
+}
+
+.app-icon {
+  width: 50px;
+  height: 50px;
+  margin-right: 1rem;
+  border-radius: 12px;
+}
+
+.app-info {
+  flex: 1;
+}
+
+.app-title {
+  font-size: 1.1rem;
+  margin-bottom: 0.3rem;
+  color: #007acc;
+}
+
+.app-desc {
+  font-size: 0.85rem;
+  margin-bottom: 0.5rem;
+  color: #111;
+}
+
+.download-btn {
+  display: inline-block;
+  padding: 0.35rem 0.7rem;
+  background-color: #007acc;
+  color: white;
+  border-radius: 6px;
+  text-decoration: none;
+  font-size: 0.85rem;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+}
+
+.download-btn:hover {
+  background-color: #005fa3;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 </style>
-
-<script>
-// Sample apps
-const apps = [
-  { icon:"https://via.placeholder.com/60", title:"App One", desc:"Description one" },
-  { icon:"https://via.placeholder.com/60", title:"App Two", desc:"Description two" },
-  { icon:"https://via.placeholder.com/60", title:"App Three", desc:"Description three" },
-  { icon:"https://via.placeholder.com/60", title:"App Four", desc:"Description four" },
-  { icon:"https://via.placeholder.com/60", title:"App Five", desc:"Description five" },
-  { icon:"https://via.placeholder.com/60", title:"App Six", desc:"Description six" },
-  { icon:"https://via.placeholder.com/60", title:"App Seven", desc:"Description seven" },
-  { icon:"https://via.placeholder.com/60", title:"App Eight", desc:"Description eight" }
-];
-
-// Duplicate for infinite loop
-function populateRow(rowId) {
-  const row = document.getElementById(rowId);
-  const allApps = [...apps, ...apps]; // duplicate for seamless loop
-  allApps.forEach(a => {
-    const div = document.createElement("div");
-    div.className = "app-card";
-    div.innerHTML = `
-      <img src="${a.icon}" alt="${a.title}">
-      <h3>${a.title}</h3>
-      <p>${a.desc}</p>
-    `;
-    row.appendChild(div);
-  });
-}
-
-// Fade-in effect on load
-function fadeInCards(rowId) {
-  const cards = document.getElementById(rowId).children;
-  Array.from(cards).forEach((card, i) => {
-    setTimeout(() => {
-      card.style.opacity = 1;
-      card.style.transform = "translateY(0)";
-    }, i * 150);
-  });
-}
-
-// Initialize
-populateRow("row1");
-populateRow("row2");
-fadeInCards("row1");
-fadeInCards("row2");
-</script>
 
 
 <footer>
