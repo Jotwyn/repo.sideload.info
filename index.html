@@ -296,6 +296,52 @@
 </style>
 
 <main>
+
+  <div class="copy-container">
+  <span id="copyText">https://example.com</span>
+  <button onclick="copyToClipboard()">Copy</button>
+</div>
+
+<style>
+.copy-container {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: 'SFMono-Regular', Consolas, Menlo, monospace;
+}
+
+#copyText {
+  padding: 0.3rem 0.6rem;
+  border: 1px solid #007acc;
+  font-family: 'SFMono-Regular', Consolas, Menlo, monospace;
+  font-size: 0.95rem;
+}
+
+.copy-container button {
+  padding: 0.3rem 0.7rem;
+  border: none;
+  border-radius: 0; /* rectangular */
+  background-color: #007acc;
+  color: white;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background 0.3s ease;
+}
+
+.copy-container button:hover {
+  background-color: #005fa3;
+}
+</style>
+
+<script>
+function copyToClipboard() {
+  const text = document.getElementById("copyText").textContent;
+  navigator.clipboard.writeText(text).then(() => {
+    alert("Copied to clipboard!");
+  });
+}
+</script>
+  
   <div class="faq-section">
     <div class="grey">
       To learn how to sideload or add this repo to your device, visit <a href="https://ios.sideload.info">ios.sideload.info</a>.
