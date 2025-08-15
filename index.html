@@ -308,22 +308,128 @@
 
 </main>
 
-<section class="app-marquee">
-  <div class="marquee-row" id="row1">
-    <div class="app-card">
-      <img src="icon1.png" alt="App 1">
-      <h3>App 1</h3>
-      <p>Description 1</p>
+<section id="appsSection" style="padding:2rem 0; background:#f9f9f9;">
+  <h2 style="text-align:center; color:#007acc; font-weight:600; margin-bottom:2rem;">Featured Apps</h2>
+  
+  <div class="app-row-container">
+    <div class="app-row" id="row1">
+      <!-- Row 1 apps will populate here -->
     </div>
-    <div class="app-card">...</div>
-    <!-- repeat as many as needed -->
   </div>
-  <div class="marquee-row reverse" id="row2">
-    <div class="app-card">...</div>
-    <div class="app-card">...</div>
-    <!-- repeat -->
+
+  <div class="app-row-container">
+    <div class="app-row" id="row2">
+      <!-- Row 2 apps will populate here -->
+    </div>
   </div>
 </section>
+
+<style>
+.app-row-container {
+  overflow: hidden;
+  position: relative;
+  margin-bottom: 1rem;
+}
+
+.app-row {
+  display: flex;
+  gap: 1rem;
+  width: max-content;
+  animation: scroll-left 20s linear infinite;
+}
+
+#row2 {
+  animation: scroll-right 25s linear infinite;
+}
+
+.app-card {
+  flex: 0 0 22%; /* 4 per row + gaps */
+  background: #fff;
+  border-radius: 10px;
+  padding: 1rem;
+  text-align: center;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.app-card img {
+  width: 60px;
+  height: 60px;
+  margin-bottom: 0.5rem;
+  border-radius: 12px;
+}
+
+.app-card h3 {
+  margin: 0.5rem 0 0.3rem 0;
+  font-size: 1rem;
+  color: #007acc;
+}
+
+.app-card p {
+  font-size: 0.85rem;
+  color: #555;
+}
+
+/* Animations */
+@keyframes scroll-left {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+@keyframes scroll-right {
+  0% { transform: translateX(-50%); }
+  100% { transform: translateX(0); }
+}
+</style>
+
+<script>
+// Sample apps
+const apps = [
+  { icon:"https://via.placeholder.com/60", title:"App One", desc:"Description one" },
+  { icon:"https://via.placeholder.com/60", title:"App Two", desc:"Description two" },
+  { icon:"https://via.placeholder.com/60", title:"App Three", desc:"Description three" },
+  { icon:"https://via.placeholder.com/60", title:"App Four", desc:"Description four" },
+  { icon:"https://via.placeholder.com/60", title:"App Five", desc:"Description five" },
+  { icon:"https://via.placeholder.com/60", title:"App Six", desc:"Description six" },
+  { icon:"https://via.placeholder.com/60", title:"App Seven", desc:"Description seven" },
+  { icon:"https://via.placeholder.com/60", title:"App Eight", desc:"Description eight" }
+];
+
+// Duplicate for infinite loop
+function populateRow(rowId) {
+  const row = document.getElementById(rowId);
+  const allApps = [...apps, ...apps]; // duplicate for seamless loop
+  allApps.forEach(a => {
+    const div = document.createElement("div");
+    div.className = "app-card";
+    div.innerHTML = `
+      <img src="${a.icon}" alt="${a.title}">
+      <h3>${a.title}</h3>
+      <p>${a.desc}</p>
+    `;
+    row.appendChild(div);
+  });
+}
+
+// Fade-in effect on load
+function fadeInCards(rowId) {
+  const cards = document.getElementById(rowId).children;
+  Array.from(cards).forEach((card, i) => {
+    setTimeout(() => {
+      card.style.opacity = 1;
+      card.style.transform = "translateY(0)";
+    }, i * 150);
+  });
+}
+
+// Initialize
+populateRow("row1");
+populateRow("row2");
+fadeInCards("row1");
+fadeInCards("row2");
+</script>
 
 
 <footer>
